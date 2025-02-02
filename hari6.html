@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Hotel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .success-message {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h1>Register Your Hotel</h1>
+
+    <form id="hotel-registration-form">
+        <label for="hotel-name">Hotel Name:</label>
+        <input type="text" id="hotel-name" name="hotel-name" required>
+
+        <label for="hotel-location">Location:</label>
+        <input type="text" id="hotel-location" name="hotel-location" required>
+
+        <label for="hotel-description">Description:</label>
+        <textarea id="hotel-description" name="hotel-description" rows="4" required></textarea>
+
+        <label for="hotel-contact">Contact Number:</label>
+        <input type="tel" id="hotel-contact" name="hotel-contact" required>
+
+        <label for="hotel-email">Email:</label>
+        <input type="email" id="hotel-email" name="hotel-email" required>
+
+        <button type="submit">Register Hotel</button>
+    </form>
+
+    <div id="success-message" class="success-message" style="display: none;">
+        Your hotel has been successfully registered!
+    </div>
+</div>
+
+<script>
+    document.getElementById('hotel-registration-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from refreshing the page
+
+        // Get form values
+        const hotelName = document.getElementById('hotel-name').value;
+        const hotelLocation = document.getElementById('hotel-location').value;
+        const hotelDescription = document.getElementById('hotel-description').value;
+        const hotelContact = document.getElementById('hotel-contact').value;
+        const hotelEmail = document.getElementById('hotel-email').value;
+
+        // Create an object to store hotel data
+        const hotelData = {
+            name: hotelName,
+            location: hotelLocation,
+            description: hotelDescription,
+            contact: hotelContact,
+            email: hotelEmail
+        };
+
+        // Store the hotel data in localStorage (or in a database if using backend)
+        localStorage.setItem('hotelData', JSON.stringify(hotelData));
+
+        // Show success message
+        document.getElementById('success-message').style.display = 'block';
+
+        // Optionally, clear the form after successful registration
+        document.getElementById('hotel-registration-form').reset();
+    });
+</script>
+const storedHotelData = JSON.parse(localStorage.getItem('hotelData'));
+if (storedHotelData) {
+    console.log(storedHotelData);
+    // Use the data as needed (e.g., display it on a page)
+}
+
+</body>
+</html>

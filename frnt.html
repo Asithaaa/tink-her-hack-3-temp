@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSphere - Your Ultimate Shopping Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url('C:\Users\User\Desktop\logo.png'); /* Colorful Shop Background */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .overlay {
+            background: rgba(33, 7, 82, 0.5);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(184, 70, 230, 0.2);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 6px rgba(182, 100, 100, 0.5);
+            color: #ffcc00; /* Vibrant Yellow */
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+            text-shadow: 1px 1px 4px rgba(165, 66, 66, 0.5);
+            color: #f8f9fa;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 35px;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(135deg, #ff5733, #ffcc00);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            box-shadow: 0px 4px 10px rgba(255, 87, 51, 0.5);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #e64a19, #ffaf00);
+            box-shadow: 0px 6px 15px rgba(255, 87, 51, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .btn {
+                font-size: 18px;
+                padding: 12px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <div class="container">
+        <img src="C:\Users\User\Desktop\background.jpg" alt="ShopSphere Logo" class="logo">
+        <h1>ShopSphere</h1>
+        <p>Your ultimate shopping companion. Find the best stores, deals, and exclusive offers near you!</p>
+        <a href="hariii.html" class="btn">Get Started</a>
+
+    </div>
+
+</body>
+</html>

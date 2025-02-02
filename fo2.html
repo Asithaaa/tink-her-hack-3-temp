@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Categories - Footwear</title>
+    <style>
+        /* Your existing CSS styles */
+    </style>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 333</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            height: 100vh; /* Ensure the body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* This will push the button to the bottom */
+        }
+        .content {
+            flex: 1; /* This allows the content to take up the available space above the button */
+        }
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px; /* Add some space from the bottom of the page */
+        }
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .back-button:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Explore Footwear Shops by Category</h1>
+    <p>Find your favorite footwear shops in different categories!</p>
+</div>
+
+<div class="container">
+    <!-- Footwear Category (Sneakers) -->
+    <div class="category-card" onclick="window.location.href='sneakers.html'">
+        <img src="sneakers.jpg" alt="Sneakers">
+        <h2>Sneakers</h2>
+        <p>Browse the latest sneakers for every style.</p>
+    </div>
+
+    <!-- Footwear Category (Boots) -->
+    <div class="category-card" onclick="window.location.href='boots.html'">
+        <img src="boots.jpg" alt="Boots">
+        <h2>Boots</h2>
+        <p>Explore trendy boots for all seasons.</p>
+    </div>
+
+    <!-- Footwear Category (Sandals) -->
+    <div class="category-card" onclick="window.location.href='sandals.html'">
+        <img src="sandals.jpg" alt="Sandals">
+        <h2>Sandals</h2>
+        <p>Comfortable sandals for everyday wear.</p>
+    </div>
+
+    <!-- Add button to Register Footwear Shop -->
+    <div class="category-card" onclick="window.location.href='register-footwear-shop.html'">
+        <img src="register.jpg" alt="Register Footwear Shop">
+        <h2>Register Your Footwear Shop</h2>
+        <p>Footwear shop owners can register their stores here.</p>
+    </div>
+</div>
+<!-- Back Button -->
+<button class="back-button" onclick="window.location.href='333.html'">Back to Categories</button>
+
+<a href="fo3.html">
+<button>viewMenu</button>
+</a>
+</body>
+</html>

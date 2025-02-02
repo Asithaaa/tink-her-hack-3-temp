@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Your Footwear Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .header {
+            background: #333;
+            color: white;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #218838;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 333</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            height: 100vh; /* Ensure the body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* This will push the button to the bottom */
+        }
+        .content {
+            flex: 1; /* This allows the content to take up the available space above the button */
+        }
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px; /* Add some space from the bottom of the page */
+        }
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .back-button:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Register Your Footwear Store</h1>
+    <p>Fill out the form to register your store.</p>
+</div>
+
+<div class="container">
+    <form id="storeRegistrationForm">
+        <label for="storeName">Store Name:</label>
+        <input type="text" id="storeName" required><br>
+
+        <label for="storeAddress">Store Address:</label>
+        <input type="text" id="storeAddress" required><br>
+
+        <label for="footwearCollection">Footwear Collection (JSON format):</label>
+        <textarea id="footwearCollection" rows="5" placeholder='[{"name": "Sneakers", "price": 50, "brand": "Nike"}, {"name": "Boots", "price": 80, "brand": "Timberland"}]'></textarea><br>
+
+        <button type="submit">Register Store</button>
+    </form>
+</div>
+
+
+
+<script>
+    // Handle store registration form submission (mock data)
+    document.getElementById('storeRegistrationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const storeName = document.getElementById('storeName').value;
+        const storeAddress = document.getElementById('storeAddress').value;
+        const footwearCollection = JSON.parse(document.getElementById('footwearCollection').value);
+
+        // Mock saving to local storage or server
+        const storeData = { storeName, storeAddress, footwearCollection };
+        localStorage.setItem('storeData', JSON.stringify(storeData));
+
+        alert('Store Registered Successfully!');
+        window.location.href = 'stores.html';  // Redirect to the stores list
+    });
+</script>
+<a href="fo3.html">
+    <button>viewDetails</button>
+</a>
+</body>
+</html>

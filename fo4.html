@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footwear Collection</title>
+    <style>
+        /* Your existing CSS styles */
+    </style>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 333</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            height: 100vh; /* Ensure the body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* This will push the button to the bottom */
+        }
+        .content {
+            flex: 1; /* This allows the content to take up the available space above the button */
+        }
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px; /* Add some space from the bottom of the page */
+        }
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .back-button:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Footwear Collection</h1>
+</div>
+
+<div class="container" id="footwearList">
+    <!-- Footwear items will be dynamically loaded here -->
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 Shop Finder. All rights reserved.</p>
+</div>
+
+<script>
+    // Load selected footwear store data from local storage
+    const selectedStore = JSON.parse(localStorage.getItem('selectedStore'));
+
+    if (selectedStore) {
+        const footwearListDiv = document.getElementById('footwearList');
+        const footwearCollection = selectedStore.footwearCollection;
+
+        footwearCollection.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('category-card');
+            itemDiv.innerHTML = `
+                <h2>${item.name}</h2>
+                <p>Price: $${item.price}</p>
+                <p>Brand: ${item.brand}</p>
+            `;
+            footwearListDiv.appendChild(itemDiv);
+        });
+    } else {
+        alert('No store selected!');
+    }
+</script>
+<!-- Back Button -->
+<button class="back-button" onclick="window.location.href='333.html'">Back to Categories</button>
+</body>
+</html>

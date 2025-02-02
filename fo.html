@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Finder - Footwear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1521747116042-bd67c5b7aaf5');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        header img {
+            width: 100px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin: 10px 0;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .intro {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #shopList {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .shop {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .shop:hover {
+            transform: translateY(-10px);
+        }
+
+        .shop img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .shop h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .shop p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            margin-top: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .icon:hover {
+            transform: scale(1.1);
+        }
+
+        .location-request {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 30px;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .location-request h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .location-request button {
+            font-size: 20px;
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .location-request button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Shop Finder - Footwear</h1>
+        <p class="intro">Discover the best footwear shops near you with exclusive offers!</p>
+    </header>
+
+    <!-- Location Request Modal -->
+    <div class="location-request" id="locationRequest">
+        <h2>Allow Location Access</h2>
+        <p>We need access to your location to show you nearby footwear shops. Please allow location access.</p>
+        <button onclick="getLocation()">Allow Location</button>
+    </div>
+    <a href="footwear-shops.html">
+        <button>Explore Footwear Shops</button>
+    </a>
+
+    <!-- Categories Page -->
+    <div id="categoriesPage" style="display:none;">
+        <div class="header">
+            <h1>Explore Footwear Shops by Type</h1>
+            <p>Find your favorite footwear shops, from sneakers to boots!</p>
+        </div>
+
+        <div class="container">
+            <div class="category-card" onclick="window.location.href='sneakers.html'">
+                <img src="sneakers.jpg" alt="Sneakers">
+                <h2>Sneakers</h2>
+            </div>
+
+            <div class="category-card" onclick="window.location.href='boots.html'">
+                <img src="boots.jpg" alt="Boots">
+                <h2>Boots</h2>
+            </div>
+
+            <div class="category-card" onclick="window.location.href='sandals.html'">
+                <img src="sandals.jpg" alt="Sandals">
+                <h2>Sandals</h2>
+            </div>
+
+            <div class="category-card" onclick="window.location.href='formal-shoes.html'">
+                <img src="formal-shoes.jpg" alt="Formal Shoes">
+                <h2>Formal Shoes</h2>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Shop Finder. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById("locationRequest").style.display = "block";
+        };
+
+        // Get the user's location
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showCategoriesPage, handleError);
+                document.getElementById("locationRequest").style.display = "none";
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showCategoriesPage() {
+            document.getElementById('locationRequest').style.display = 'none';
+            document.getElementById('categoriesPage').style.display = 'block';
+        }
+
+        function handleError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("You denied the request for your location.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get your location timed out.");
+                    break;
+                default:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+    </script>
+
+</body>
+</html>

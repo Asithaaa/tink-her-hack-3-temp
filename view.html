@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Hotels</title>
+    <style>
+        /* Your existing CSS styles */
+    </style>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 333</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            height: 100vh; /* Ensure the body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* This will push the button to the bottom */
+        }
+        .content {
+            flex: 1; /* This allows the content to take up the available space above the button */
+        }
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px; /* Add some space from the bottom of the page */
+        }
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .back-button:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Nearby Hotels</h1>
+    <p>Explore hotels near your location.</p>
+</div>
+
+<div class="container" id="hotelList">
+    <!-- Hotels will be dynamically loaded here -->
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 Shop Finder. All rights reserved.</p>
+</div>
+
+<script>
+    // Mock data for nearby hotels (replace this with actual geolocation API in production)
+    const hotels = [
+        {
+            name: 'Luxury Hotel',
+            address: '123 Fancy St.',
+            distance: 1.2,
+            foodMenu: [{ item: 'Pizza', price: 12 }, { item: 'Pasta', price: 15 }],
+            id: 1
+        },
+        {
+            name: 'Budget Hotel',
+            address: '456 Economy Ave.',
+            distance: 2.3,
+            foodMenu: [{ item: 'Burger', price: 8 }, { item: 'Fries', price: 4 }],
+            id: 2
+        }
+    ];
+
+    // Display hotels
+    const hotelListDiv = document.getElementById('hotelList');
+    hotels.forEach(hotel => {
+        const hotelDiv = document.createElement('div');
+        hotelDiv.classList.add('category-card');
+        hotelDiv.innerHTML = `
+            <h2>${hotel.name}</h2>
+            <p>${hotel.address}</p>
+            <p>Distance: ${hotel.distance} km</p>
+            
+            <a href = "price.html">
+    <button>viewprize</button>
+</a>
+        `;
+        hotelListDiv.appendChild(hotelDiv);
+    });
+
+    // Show menu for a specific hotel
+    function viewMenu(hotelId) {
+        const selectedHotel = hotels.find(hotel => hotel.id === hotelId);
+        if (selectedHotel) {
+            localStorage.setItem('selectedHotel', JSON.stringify(selectedHotel));
+            window.location.href = 'hotel-menu.html';  // Navigate to menu page
+        }
+        
+    }
+</script>
+<!-- Back Button -->
+<button class="back-button" onclick="window.location.href='333.html'">Back to Categories</button>
+
+</body>
+</html>

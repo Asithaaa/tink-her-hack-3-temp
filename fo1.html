@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Categories - Footwear</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            margin: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+
+        .category-card img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .category-card h2 {
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .category-card p {
+            text-align: center;
+            padding: 10px;
+            color: #777;
+        }
+
+        .footwear-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .footwear-card {
+            background-color: white;
+            border-radius: 10px;
+            margin: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footwear-card:hover {
+            transform: scale(1.05);
+        }
+
+        .footwear-card img {
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .footwear-card h2 {
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .form-container {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .delete-btn:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Categories Page -->
+<div id="categoriesPage">
+    <div class="header">
+        <h1>Explore Footwear Shops by Category</h1>
+        <p>Find the best footwear stores nearby!</p>
+    </div>
+
+    <div class="container">
+        <!-- Footwear Types -->
+        <div class="category-card" onclick="showFootwearList()">
+            <img src="sneakers.jpg" alt="Sneakers">
+            <h2>Sneakers</h2>
+            <p>Browse the latest sneakers for every style.</p>
+        </div>
+
+        <div class="category-card" onclick="window.location.href='boots.html'">
+            <img src="boots.jpg" alt="Boots">
+            <h2>Boots</h2>
+            <p>Explore trendy boots for all seasons.</p>
+        </div>
+
+        <div class="category-card" onclick="window.location.href='sandals.html'">
+            <img src="sandals.jpg" alt="Sandals">
+            <h2>Sandals</h2>
+            <p>Comfortable sandals for everyday wear.</p>
+        </div>
+
+        <div class="category-card" onclick="window.location.href='formal-shoes.html'">
+            <img src="formal-shoes.jpg" alt="Formal Shoes">
+            <h2>Formal Shoes</h2>
+            <p>Elegant footwear for formal occasions.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Shop Finder. All rights reserved.</p>
+    </div>
+</div>
+
+<!-- Footwear List and Register Button -->
+<div id="footwearListPage" style="display: none;">
+    <div class="header">
+        <h1>Footwear Shops</h1>
+        <p>Click on a shop to view the details.</p>
+    </div>
+    name:"footy",<br>
+    address:"123 silver street,jam",<br>
+    <div class="footwear-list" id="footwearList"></div>
+    
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="showRegistrationForm()">Register Footwear Shop</button>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Shop Finder. All rights reserved.</p>
+    </div>
+</div>
+
+<a href="reg.html">
+    <button>viewMenu</button>
+    </a>
+<!-- Back Button -->
+<button class="back-button" onclick="window.location.href='333.html'">Back to Categories</button>
+<a href="register-footwear-shop.html">
+</a>
+
+<script>
+    // Footwear shop data storage (localStorage or in-memory for now)
+    let footwearShops = JSON.parse(localStorage.getItem('footwearShops')) || [];
+
+    // Show the list of footwear shops
+    function showFootwearList() {
+        document.getElementById('categoriesPage').style.display = 'none';
+        document.getElementById('footwearListPage').style.display = 'block';
+
+        const footwearListDiv = document.getElementById('footwearList');
+        footwearListDiv.innerHTML = ''; // Clear previous content
+
+        if (footwearShops.length === 0) {
+            footwearListDiv.innerHTML = "<p>No footwear shops registered yet.</p>";
+        } else {
+            footwearShops.forEach((shop, index) => {
+                const shopCard = document.createElement('div');
+                shopCard.classList.add('footwear-card');
+                shopCard.innerHTML = `
+                    <img src="footwear-shop.jpg" alt="${shop.name}">
+                    <h2>${shop.name}</h2>
+                    <p>${shop.address}</p>
+                    <button onclick="viewDetails(${index})">View Details</button>
+                    <button class="delete-btn" onclick="deleteShop(${index})">Delete</button>
+                `;
+                footwearListDiv.appendChild(shopCard);
+            });
+        }
+    }
+
+    // Show the registration form
+    function showRegistrationForm() {
+        document.getElementById('footwearListPage').style.display = 'none';
+        document.getElementById('registrationPage').style.display = 'block';
+    }
+
+    // Handle footwear shop registration form submission
+    document.getElementById('footwearShopRegistrationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const shopName = document.getElementById('shopName').value;
+        const shopAddress = document.getElementById('shopAddress').value;
+
+        const newShop = { name: shopName, address: shopAddress };
+        footwearShops.push(newShop);
+
+        // Save updated shop data to localStorage
+        localStorage.setItem('footwearShops', JSON.stringify(footwearShops));
+
+        alert('Footwear Shop Registered Successfully!');
+        showFootwearList(); // Show the updated shop list
+    });
+
+    // View shop details
+    function viewDetails(index) {
+        const shop = footwearShops[index];
+        alert(`Details for ${shop.name}:\nAddress: ${shop.address}`);
+    }
+
+    // Delete a shop from the list
+    function deleteShop(index) {
+        if (confirm("Are you sure you want to delete this shop?")) {
+            footwearShops.splice(index, 1);
+            // Save the updated list to localStorage
+            localStorage.setItem('footwearShops', JSON.stringify(footwearShops));
+            showFootwearList(); // Refresh the list
+        }
+    }
+</script>
+
+</body>
+</html>

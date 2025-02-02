@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Menu</title>
+    <style>
+        /* Your existing CSS styles */
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Hotel Menu</h1>
+</div>
+
+<div class="container" id="menuList">
+    <!-- Menu will be dynamically loaded here -->
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 Shop Finder. All rights reserved.</p>
+</div>
+
+<script>
+    // Load selected hotel data from local storage
+    const selectedHotel = JSON.parse(localStorage.getItem('selectedHotel'));
+
+    if (selectedHotel) {
+        const menuListDiv = document.getElementById('menuList');
+        const menu = selectedHotel.foodMenu;
+
+        menu.forEach(item => {
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('category-card');
+            itemDiv.innerHTML = `
+                <h2>${item.item}</h2>
+                <p>Price: $${item.price}</p>
+            `;
+            menuListDiv.appendChild(itemDiv);
+        });
+    } else {
+        alert('No hotel selected!');
+    }
+</script>
+
+</body>
+</html>

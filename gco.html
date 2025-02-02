@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Grocery Shops</title>
+    <style>
+        /* Your existing CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .category-card {
+            background-color: white;
+            border-radius: 10px;
+            margin: 10px;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+
+        .category-card h2 {
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .category-card p {
+            text-align: center;
+            padding: 10px;
+            color: #777;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 30px;
+        }
+
+        .category-card a button {
+            margin: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .category-card a button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 333</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            height: 100vh; /* Ensure the body takes full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* This will push the button to the bottom */
+        }
+        .content {
+            flex: 1; /* This allows the content to take up the available space above the button */
+        }
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px; /* Add some space from the bottom of the page */
+        }
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+        .back-button:active {
+            transform: translateY(2px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Nearby Grocery Shops</h1>
+    <p>Explore grocery stores near your location.</p>
+</div>
+
+<div class="container" id="groceryList">
+    <!-- Grocery shops will be dynamically loaded here -->
+</div>
+
+<div class="footer">
+    <p>&copy; 2025 Shop Finder. All rights reserved.</p>
+</div>
+
+<script>
+    // Mock data for nearby grocery shops (replace this with actual geolocation API in production)
+    const groceryShops = [
+        {
+            name: 'Fresh Mart',
+            address: '123 Greenway Blvd.',
+            distance: 1.2,
+            productMenu: [{ item: 'Apples', price: 3 }, { item: 'Milk', price: 2 }],
+            id: 1
+        },
+        {
+            name: 'Daily Needs',
+            address: '456 Market Lane',
+            distance: 2.5,
+            productMenu: [{ item: 'Rice', price: 5 }, { item: 'Vegetables', price: 4 }],
+            id: 2
+        }
+    ];
+
+    // Display grocery shops
+    const groceryListDiv = document.getElementById('groceryList');
+    groceryShops.forEach(shop => {
+        const shopDiv = document.createElement('div');
+        shopDiv.classList.add('category-card');
+        shopDiv.innerHTML = `
+            <h2>${shop.name}</h2>
+            <p>${shop.address}</p>
+            <p>Distance: ${shop.distance} km</p>
+            <a href="grocery-menu.html">
+                <button>View Prices</button>
+            </a>
+        `;
+        groceryListDiv.appendChild(shopDiv);
+    });
+
+    // Show menu for a specific grocery shop
+    function viewMenu(shopId) {
+        const selectedShop = groceryShops.find(shop => shop.id === shopId);
+        if (selectedShop) {
+            localStorage.setItem('selectedShop', JSON.stringify(selectedShop));
+            window.location.href = 'grocery-menu.html';  // Navigate to product menu page
+        }
+    }
+</script>
+<!-- Back Button -->
+<button class="back-button" onclick="window.location.href='333.html'">Back to Categories</button>
+
+</body>
+</html>

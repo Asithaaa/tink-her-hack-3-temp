@@ -2,13 +2,13 @@
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [Hacksmiths]
 
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Member 1: [D.Haritha] - [ASET]
+- Member 2: [Asitha_R_Prajith] - [ASET]
+- Member 3: [Sneha.G] - [ASET]
 
 ### Hosted Project Link
 [mention your project hosted project link here]
@@ -17,31 +17,57 @@
 [2-3 lines about what your project does]
 
 ### The Problem statement
-[What ridiculous problem are you solving?]
+In today's fast-paced world, people often struggle to find the best shops, services, and deals in their locality. Whether it's a grocery store, a fashion boutique, a hardware shop, or a restaurant, users need a quick and convenient way to explore available options without having to manually search for them.
+Currently, there is no centralized platform that provides real-time, location-based information about all shops in a given locality. Users often rely on word-of-mouth, scattered online reviews, or multiple apps to find relevant shops and their offers. This results in:
+
+Wasted time searching for nearby shops manually
+Lack of awareness about new or trending stores in the area
+Difficulty in comparing different stores based on ratings, prices, and services
+Missed deals and discounts due to the absence of a unified platform
 
 ### The Solution
-[How are you solving it? Keep it fun!]
+ShopSphere is an innovative location-based shop discovery app that provides users with real-time information about all shops in their locality. By accessing the user’s GPS location, the app will:
+
+Show a categorized list of nearby shops (Grocery, Fashion, Electronics, Restaurants, etc.).
+Display shop details, including address, contact info, operating hours, and customer reviews.
+Highlight special offers, discounts, and deals from various stores.
+Allow users to search and filter shops based on preferences (e.g., "best-rated cafes nearby").
+Provide navigation assistance to reach the desired shop.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
 
 For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+Technical Details
 
+Technologies/Components Used
+
+For Software:
+
+Languages Used: HTML, CSS, JavaScript
+
+Frameworks Used: Bootstrap
+
+Libraries Used: Google Maps API, Geolocation API
+
+Tools Used: VS Code, GitHub, Firebase (for data storage)
+
+For Hardware:
+
+(No hardware components are needed for this project.)
 ### Implementation
 For Software:
 # Installation
-[commands]
+[command]
+# Clone the repository
+git clone [repository link]
+
+# Navigate to project folder
+cd ShopSphere
 
 # Run
-[commands]
+[commands] # Open index.html in browser
 
 ### Project Documentation
 For Software:
@@ -91,9 +117,6 @@ For Hardware:
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
 
 ---
 Made with ❤️ at TinkerHub
