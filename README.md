@@ -11,10 +11,10 @@
 - Member 3: [Sneha.G] - [ASET]
 
 ### Hosted Project Link
-[mention your project hosted project link here]
+github: https://github.com/Asithaaa/tink-her-hack-3-temp
 
 ### Project Description
-[2-3 lines about what your project does]
+ShopSphere is a location-based shop discovery app that provides real-time information about all shops in a given locality. It helps users find nearby stores, explore deals, and get shop details effortlessly.
 
 ### The Problem statement
 In today's fast-paced world, people often struggle to find the best shops, services, and deals in their locality. Whether it's a grocery store, a fashion boutique, a hardware shop, or a restaurant, users need a quick and convenient way to explore available options without having to manually search for them.
