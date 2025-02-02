@@ -1,4 +1,4 @@
-# [Project Name] 🎯
+# [SHOPSPHERE] 🎯
 
 
 ## Basic Details
